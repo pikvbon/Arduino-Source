@@ -16,6 +16,9 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+add_custom_target(build-time-make-directory ALL
+    COMMAND ${CMAKE_COMMAND} -E make_directory Assembly/)
+
 #Find threads library
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
@@ -1393,6 +1396,8 @@ file(GLOB MAIN_SOURCES
     Source/PokemonSV/PokemonSV_Panels.h
     Source/PokemonSV/PokemonSV_Settings.cpp
     Source/PokemonSV/PokemonSV_Settings.h
+    Source/PokemonSV/Programs/AutoStory/PokemonSV_AutoStory.cpp
+    Source/PokemonSV/Programs/AutoStory/PokemonSV_AutoStory.h
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxAttach.cpp
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxAttach.h
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxRelease.cpp

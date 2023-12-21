@@ -696,6 +696,7 @@ SOURCES += \
     Source/PokemonSV/Options/PokemonSV_TournamentPrizeTable.cpp \
     Source/PokemonSV/PokemonSV_Panels.cpp \
     Source/PokemonSV/PokemonSV_Settings.cpp \
+    Source/PokemonSV/Programs/AutoStory/PokemonSV_AutoStory.cpp \
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxAttach.cpp \
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxRelease.cpp \
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxRoutines.cpp \
@@ -1749,6 +1750,7 @@ HEADERS += \
     Source/PokemonSV/Options/PokemonSV_TournamentPrizeTable.h \
     Source/PokemonSV/PokemonSV_Panels.h \
     Source/PokemonSV/PokemonSV_Settings.h \
+    Source/PokemonSV/Programs/AutoStory/PokemonSV_AutoStory.h \
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxAttach.h \
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxRelease.h \
     Source/PokemonSV/Programs/Boxes/PokemonSV_BoxRoutines.h \

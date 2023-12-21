@@ -47,6 +47,8 @@
 #include "Programs/ShinyHunting/PokemonSV_ShinyHunt-AreaZeroPlatform.h"
 #include "Programs/ShinyHunting/PokemonSV_ShinyHunt-Scatterbug.h"
 
+#include "Programs/AutoStory/PokemonSV_AutoStory.h"
+
 #include "Programs/Glitches/PokemonSV_RideCloner-1.0.1.h"
 #include "Programs/Glitches/PokemonSV_CloneItems-1.0.1.h"
 
@@ -118,6 +120,9 @@ std::vector<PanelEntry> PanelListFactory::make_panels() const{
 
     ret.emplace_back("---- Shiny Hunting ----");
     ret.emplace_back(make_single_switch_program<ShinyHuntAreaZeroPlatform_Descriptor, ShinyHuntAreaZeroPlatform>());
+
+    ret.emplace_back("---- Story Automation ----");
+    ret.emplace_back(make_single_switch_program<AutoStory_Descriptor, AutoStory>());
 
     ret.emplace_back("---- Glitches ----");
     ret.emplace_back(make_single_switch_program<RideCloner101_Descriptor, RideCloner101>());

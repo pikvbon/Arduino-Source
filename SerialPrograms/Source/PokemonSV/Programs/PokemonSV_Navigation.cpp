@@ -84,7 +84,9 @@ void press_Bs_to_back_to_overworld(const ProgramInfo& info, ConsoleHandle& conso
     }
 }
 
-void open_map_from_overworld(const ProgramInfo& info, ConsoleHandle& console, BotBaseContext& context){
+void open_map_from_overworld(const ProgramInfo& info, ConsoleHandle& console, BotBaseContext& context,
+    bool clear_tutorial)
+{
     {
         OverworldWatcher overworld(COLOR_CYAN);
         context.wait_for_all_requests();
@@ -149,6 +151,9 @@ void open_map_from_overworld(const ProgramInfo& info, ConsoleHandle& console, Bo
                 return;
             }
             else{ // click R joystick to change to fixed view
+                if (clear_tutorial){
+                    pbf_press_button(context, BUTTON_A, 20, 105);
+                }
                 console.log("Map in rotate view, fix it");
                 console.overlay().add_log("Change map to fixed view", COLOR_WHITE);
                 pbf_press_button(context, BUTTON_RCLICK, 20, 105);
