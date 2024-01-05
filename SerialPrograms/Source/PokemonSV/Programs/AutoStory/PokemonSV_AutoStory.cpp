@@ -348,6 +348,28 @@ void mash_button_till_overworld(SingleSwitchProgramEnvironment& env, BotBaseCont
     }
 }
 
+void mash_button_through_intro(SingleSwitchProgramEnvironment& env, BotBaseContext& context, uint16_t button = BUTTON_A, uint16_t seconds_run = 225){
+    WhiteButtonWatcher lstickbutton(COLOR_CYAN, WhiteButton::ButtonLStick, {0.442, 0.911, 0.04, 0.051});
+    context.wait_for_all_requests();
+
+    int ret = run_until(
+        env.console, context,
+        [button, seconds_run](BotBaseContext& context){
+            ssf_mash1_button(context, button, seconds_run * TICKS_PER_SECOND);
+            pbf_wait(context, seconds_run * TICKS_PER_SECOND);
+        },
+        {lstickbutton}
+    );
+
+    if (ret < 0){
+        throw OperationFailedException(
+            ErrorReport::SEND_ERROR_REPORT, env.console,
+            "mash_button_through_intro(): Timed out, no recognized state found.",
+            true
+        );
+    }
+}
+
 void reset_game(SingleSwitchProgramEnvironment& env, BotBaseContext& context, const std::string& error_msg){
     try{
         pbf_press_button(context, BUTTON_HOME, 20, GameSettings::instance().GAME_TO_HOME_DELAY);
@@ -362,9 +384,9 @@ void reset_game(SingleSwitchProgramEnvironment& env, BotBaseContext& context, co
 
 void config_option(BotBaseContext& context, int change_option_value){
     for (int i = 0; i < change_option_value; i++){
-        pbf_press_dpad(context, DPAD_RIGHT, 15, 20);
+        pbf_press_dpad(context, DPAD_RIGHT, 20, 105);
     }
-    pbf_press_dpad(context, DPAD_DOWN,  15, 20);
+    pbf_press_dpad(context, DPAD_DOWN,  5, 75);
 }
 
 void enter_menu_from_overworld(SingleSwitchProgramEnvironment& env, BotBaseContext& context,
@@ -449,7 +471,8 @@ void AutoStory::program(SingleSwitchProgramEnvironment& env, BotBaseContext& con
 
         // Mash A through intro cutscene
         // TODO: Stand up icon detection
-        pbf_mash_button(context, BUTTON_A, 225 * TICKS_PER_SECOND);
+        //pbf_mash_button(context, BUTTON_A, 225 * TICKS_PER_SECOND);
+        mash_button_through_intro(env, context);
 
         context.wait_for_all_requests();
         env.console.log("End Segment 00: Intro Cutscene", COLOR_GREEN);

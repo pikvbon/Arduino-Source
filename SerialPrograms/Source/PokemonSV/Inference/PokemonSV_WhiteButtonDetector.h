@@ -30,6 +30,7 @@ enum class WhiteButton{
     ButtonB,
     ButtonY,
     ButtonMinus,
+    ButtonLStick,
     ButtonLeft,
     ButtonRight,
 };
@@ -42,6 +43,7 @@ public:
     static const WhiteButtonMatcher& B();
     static const WhiteButtonMatcher& Y();
     static const WhiteButtonMatcher& Minus();
+    static const WhiteButtonMatcher& LStick();
     static const WhiteButtonMatcher& ArrowLeft();
     static const WhiteButtonMatcher& ArrowRight();
 
