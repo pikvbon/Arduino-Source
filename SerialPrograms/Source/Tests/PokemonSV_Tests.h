@@ -64,6 +64,8 @@ int test_pokemonSV_SandwichPlateDetector(const ImageViewRGB32& image, const std:
 
 int test_pokemonSV_RecentlyBattledDetector(const ImageViewRGB32& image, bool target);
 
+int test_pokemonSV_WhiteButtonDetector(const ImageViewRGB32& image, bool target);
+
 }
 
 #endif

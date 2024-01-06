@@ -543,4 +543,13 @@ int test_pokemonSV_RecentlyBattledDetector(const ImageViewRGB32& image, bool tar
     return 0;
 }
 
+int test_pokemonSV_WhiteButtonDetector(const ImageViewRGB32& image, bool target){
+    WhiteButtonDetector detector(COLOR_RED, WhiteButton::ButtonLStick, {0.442, 0.911, 0.04, 0.033});
+
+    const bool result = detector.detect(image);
+    TEST_RESULT_EQUAL(result, target);
+
+    return 0;
+}
+
 }

@@ -98,7 +98,7 @@ const WhiteButtonMatcher& WhiteButtonMatcher::Minus(){
     return matcher;
 }
 const WhiteButtonMatcher& WhiteButtonMatcher::LStick(){
-    static WhiteButtonMatcher matcher(WhiteButton::ButtonLStick, 15, 15, 90);
+    static WhiteButtonMatcher matcher(WhiteButton::ButtonLStick, 15, 15, 110);
     return matcher;
 }
 const WhiteButtonMatcher& WhiteButtonMatcher::ArrowLeft(){
